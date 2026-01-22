@@ -4,11 +4,13 @@ This project utilizes Deep Learning techniques to automatically detect changes i
 
 It implements a Siamese U-Net architecture to process image pairs and generate binary change maps.
 
+___
 ## Dataset
 
 The model was trained and evaluated on the S2Looking dataset.
 Dataset Source: (S2Looking generated dataset)[https://www.kaggle.com/datasets/ktncktnc/s2looking-generated-dataset]
 
+___
 ## Methodology & Architecture
 
 The core of the project is the Siamese U-Net Diff architecture, designed to handle the challenges of remote sensing change detection.
@@ -36,18 +38,14 @@ The difference features are upsampled and processed by the decoder to reconstruc
 
 A binary change map (1 = Change, 0 = No Change).
 
-**Data Preprocessing Normalization**: 
-To mitigate the effects of different lighting conditions, seasons, or atmospheric interference, Z-score normalization was applied:
-$$z = \frac{x - \mu}{\sigma}$$ (Where $x$ is the pixel value, $\mu$ is the mean, and $\sigma$ is the standard deviation).
-
 **Training Configuration** 
-> Loss Function: Binary Cross Entropy (BCE).
-> Primary Metric: F1-Score (chosen due to the high class imbalance between "background" and "change" pixels).
+- Loss Function: Binary Cross Entropy (BCE).
+- Primary Metric: F1-Score (chosen due to the high class imbalance between "background" and "change" pixels).
 
+___
 ### Evaluation Results
 
 The model was evaluated on the test set, yielding the following performance metrics:
-
 
 | Metric | Result | Interpretation |
 | :--- | :--- | :--- |
@@ -58,6 +56,21 @@ The model was evaluated on the test set, yielding the following performance metr
 | **IoU**  | 0.245  | Intersection between predicted mask and ground truth.  |
 
 
-Performance Analysis The discrepancy between the high Accuracy (0.881) and lower IoU (0.245) confirms a class imbalance problem typical in satellite imagery (most of the map is "no change"). 
+- Performance Analysis The discrepancy between the high Accuracy (0.881) and lower IoU (0.245) confirms a class imbalance problem typical in satellite imagery (most of the map is "no change"). 
 
-The F1-score of ~0.4 indicates that the model is functional but highlights a trade-off between false alarms (Precision) and missed detections (Recall).
+- The F1-score of ~0.4 indicates that the model is functional but highlights a trade-off between false alarms (Precision) and missed detections (Recall).
+___
+### Results visualisation. 
+
+!(prediction_example_1)[./imgs/prediction_example_1.png]
+
+!(prediction_example_2)[./imgs/prediction_example_2.png]
+
+!(prediction_example_3)[./imgs/prediction_example_3.png]
+
+!(prediction_example_4)[./imgs/prediction_example_4.png]
+
+!(prediction_example_5)[./imgs/prediction_example_5.png]
+<br><br>
+- Predictions correctly indicated areas where changes took place, but details are low quality.
+- Changes in natural environment, eg. farms can easly confuse predictions.
