@@ -62,15 +62,20 @@ The model was evaluated on the test set, yielding the following performance metr
 ___
 ### Results visualisation. 
 
-!(prediction_example_1)[./imgs/prediction_example_1.png]
+**Legend**
+- Red colour:
+- Blue colour:
+- Green colout: True positive. Correct prediciton. 
 
-!(prediction_example_2)[./imgs/prediction_example_2.png]
+![prediction_example_1](./imgs/prediction_example_1.png)
 
-!(prediction_example_3)[./imgs/prediction_example_3.png]
+![prediction_example_2](./imgs/prediction_example_2.png)
 
-!(prediction_example_4)[./imgs/prediction_example_4.png]
+![prediction_example_3](./imgs/prediction_example_3.png)
 
-!(prediction_example_5)[./imgs/prediction_example_5.png]
+![prediction_example_4](./imgs/prediction_example_4.png)
+
+![prediction_example_5](./imgs/prediction_example_5.png)
 <br><br>
 - Predictions correctly indicated areas where changes took place, but details are low quality.
 - Changes in natural environment, eg. farms can easly confuse predictions.
