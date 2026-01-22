@@ -8,7 +8,7 @@ ___
 ## Dataset
 
 The model was trained and evaluated on the S2Looking dataset.
-Dataset Source: (S2Looking generated dataset)[https://www.kaggle.com/datasets/ktncktnc/s2looking-generated-dataset]
+Dataset Source: [S2Looking generated dataset](https://www.kaggle.com/datasets/ktncktnc/s2looking-generated-dataset)
 
 ___
 ## Methodology & Architecture
@@ -56,16 +56,17 @@ The model was evaluated on the test set, yielding the following performance metr
 | **IoU**  | 0.245  | Intersection between predicted mask and ground truth.  |
 
 
-- Performance Analysis The discrepancy between the high Accuracy (0.881) and lower IoU (0.245) confirms a class imbalance problem typical in satellite imagery (most of the map is "no change"). 
+- The discrepancy between the high Accuracy (0.881) and lower IoU (0.245) confirms a class imbalance problem typical in satellite imagery (most of the map is "no change"). 
 
 - The F1-score of ~0.4 indicates that the model is functional but highlights a trade-off between false alarms (Precision) and missed detections (Recall).
 ___
 ### Results visualisation. 
 
 **Legend**
-- Red colour:
-- Blue colour:
-- Green colout: True positive. Correct prediciton. 
+- Green colour: True positive. Correct prediciton. 
+- Red colour: False positive. Model predicted change, but it shouldn't.
+- Blue colour: False negative Model didn't predict change, but change took place in this pixels. 
+
 
 ![prediction_example_1](./imgs/prediction_example_1.png)
 
@@ -77,5 +78,8 @@ ___
 
 ![prediction_example_5](./imgs/prediction_example_5.png)
 <br><br>
+
 - Predictions correctly indicated areas where changes took place, but details are low quality.
-- Changes in natural environment, eg. farms can easly confuse predictions.
+  
+- Changes in natural environment, eg. farms can easly confuse model's predictions.
+
